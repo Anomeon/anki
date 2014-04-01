@@ -1,0 +1,28 @@
+<h1>Все карточки</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Лицевая сторона карточки</th>
+      <th>Задняя сторона карточки</th>
+      <th>Рейтинг</th>
+      <th>Создана</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cards.each do |card| %>
+      <tr>
+        <td class="first_side"><%= card.first_side.length > 80 ? (card.first_side[0..79] + '...') : card.first_side %></td>
+        <td class="second_side"><%= card.second_side.length > 80 ? (card.second_side[0..79] + '...') : card.second_side %></td>
+        <td class="rating"><%= card.rating %></td>
+        <td class="date"><%= card.created_at.strftime("%d-%m-%Y") %></td>
+        <td><%= link_to 'Показать', card, class: "btn btn-primary" %></td>
+        <td><%= link_to 'Редактировать', edit_card_path(card), class: "btn btn-success" %></td>
+        <td><%= link_to 'Удалить', card, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

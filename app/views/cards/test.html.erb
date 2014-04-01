@@ -1,0 +1,9 @@
+<h1>Повторение карточек</h1>
+<br>
+<h4>Вопрос</h4>
+<div class="alert alert-success">
+  <%= @card.first_side %>
+</div>
+<p>
+  <%= link_to 'Показать ответ', answer_card_path(@card.id), class: "btn btn-primary" %>
+</p>

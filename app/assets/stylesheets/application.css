@@ -1,0 +1,77 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+.btn.btn-primary {
+  color: white;
+  &:visited {
+    color: white;
+  }
+}
+
+.btn.btn-success {
+  color: white;
+  &:visited {
+    color: white;
+  }
+}
+
+.btn.btn-danger {
+  color: white;
+  &:visited {
+    color: white;
+  }
+}
+
+.th {
+  text-align: center;
+}
+
+.date {
+  width: 80px;
+}
+
+.rating {
+  width: 80px;
+}
+
+#card_first_side {
+  width: 70%;
+  height: 130px;
+  resize: none;
+}
+
+#card_second_side {
+  width: 70%;
+  height: 130px;
+  resize: none;
+}
+
+#card_rating {
+  width: 40px;
+}
+
+.no_cads {
+  font-size: 16px;
+}
+
+.accaunt_name {
+  float: right;
+  padding: 10px;
+  color: white;
+}
+
+#user {
+  color: rgb(0, 163, 255);
+  text-decoration: underline;
+}
