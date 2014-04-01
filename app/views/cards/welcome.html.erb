@@ -1,10 +1,22 @@
 <% unless current_user %>
+
+
   <p>Чтобы воспользоваться сервисом - войдите или зарегистрируйтесь</p>
+
+
 <% else %>
+
+
   <% if @card_length == 0 %>
+
     <p class="no_cads">Нет карточек для повторения</p>
+
   <% else %>
+
     <p>У вас <%= @card_length %> <%= @card_plural %> для повторения. Нажмите <%= link_to 'начать', test_path, class: "btn btn-mini" %> чтобы перейти к тесту</p>
+
   <% end %>
+
+
 <% end %>
 

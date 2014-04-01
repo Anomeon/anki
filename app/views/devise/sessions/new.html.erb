@@ -1,12 +1,24 @@
-<h2>Войти</h2>
-<br>
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label 'Логин' %>
-  <%= f.text_field :login, :autofocus => true %></div>
-<br>
-  <div><%= f.label 'Пароль' %>
-  <%= f.password_field :password %></div>
+<h2>Войти</h2><br>
 
-<br>
-  <div><%= f.submit "Войти", class: "btn btn-primary" %></div>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
+
+  <div>
+    <%= f.label 'Логин' %>
+    <%= f.text_field :login, :autofocus => true %>
+  </div><br>
+
+
+  <div>
+    <%= f.label 'Пароль' %>
+    <%= f.password_field :password %>
+  </div><br>
+
+
+  <div>
+    <%= f.submit "Войти", class: "btn btn-primary" %>
+  </div>
+
+
 <% end %>

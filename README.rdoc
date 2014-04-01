@@ -4,4 +4,55 @@
 
 Добавлен devise_helper.rb для оформления ошибок devise в стиле bootstrap, взят с https://coderwall.com/p/suyeew. Удалена строчка с заголовком h4
 
-<tt>rake doc:app</tt>.
+cards_controller.rb дублирование кода в экшенах welcome и test. Сложный if для определения какие карточки сегодня надо будет повторять. В welcome для множественного числа написан if, необходимо использовать i18n
+
+в application_controller.rb есть код (сейчас он закомментирован)
+
+
+<-- devise.rb -->
+---
+config.authentication_keys = [ :email ] расскоментирован, заменена на 
+config.authentication_keys = [ :login ]
+
+возможно он и не нужен, т.к. от :validatable отказался. Рекомендуют это использовать когда у вас добавляется поле, по которому будет происходить аутентификация (по умолчанию email). Т.к. у меня email вообще нет - то использую этот совет.
+---
+config.password_length = 8..128, заменена на config.password_length = 6..128
+
+валидация происходит на уровне модели, а в ней (6..20). Поэтому опция не используется
+---
+
+
+<-- i18n в application.rb-->
+---
+Все что связано с i18n - говнокод
+---
+# config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+# config.i18n.default_locale = :de
+
+заменены и также закоментированы на:
+
+# config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
+# config.i18n.default_locale = :ru
+---
+Русскую локаль не заработала. Пришлось русский devise подсунуть как английский, английский переименовать в _devise.rb. В devise.en.yml email заменен на login
+---
+т.к. валидация происходит на уровне модели, то пришлось перевести ошибки activerecord. Добавлено эти строчки в en.bootstrap.yml
+
+  activerecord:
+    attributes:
+      user:
+        login: "Логин"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+    errors:
+      messages:
+        blank: "не может быть пустым"
+        too_short: "слишком короткий. Минимум 6 символов"
+        too_long: "слишком длинный. Максимум 20 символов"
+        taken: "уже зарегистрирован. Придумайте другой"
+        confirmation: "не совпадает с полем"
+        
+эти же сообщения можно описать сразу в правилах валидации модели, через хелпер message
+---
+
+С моделью user не все так хорошо. Подробности внутри модели.

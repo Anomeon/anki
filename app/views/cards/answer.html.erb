@@ -1,12 +1,21 @@
-<h1>Повторение карточек</h1>
-<br>
+<h1>Повторение карточек</h1><br>
+
+
 <h4>Вопрос</h4>
+
+
 <div class="alert alert-success">
   <%= @card.first_side %>
 </div>
+
+
 <h4>Ответ</h4>
+
+
 <div class="alert alert-success">
   <%= @card.second_side %>
 </div>
+
+
 <%= link_to 'Помню', plus_card_path(@card.id), class: "btn btn-success" %>
 <%= link_to 'Не помню', zero_card_path(@card.id), class: "btn btn-danger" %>
