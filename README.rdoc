@@ -1,28 +1,7 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Изменен файл scaffolds.css.scss, в нем у селектора .field_with_errors изменено значение background-color: red; на background-color: white;
 
-Things you may want to cover:
+Добавлен devise_helper.rb для оформления ошибок devise в стиле bootstrap, взят с https://coderwall.com/p/suyeew. Удалена строчка с заголовком h4
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
